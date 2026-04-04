@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vedant | Portfolio</title>
+  <title>Vedant Badgujar | Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -12,18 +12,16 @@
 
     body {
       color: #fff;
-      scroll-behavior: smooth;
+      background: #000;
       overflow-x: hidden;
-      background: #0f0f0f;
     }
 
-    /* ===== Animated Gradient Mesh Background ===== */
+    /* ===== Background ===== */
     .bg {
       position: fixed;
       inset: 0;
       z-index: -1;
-      overflow: hidden;
-      filter: blur(60px) saturate(120%);
+      filter: blur(80px);
     }
 
     .blob {
@@ -31,66 +29,72 @@
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      opacity: 0.6;
+      opacity: 0.5;
       animation: move 20s infinite alternate ease-in-out;
     }
 
-    .blob:nth-child(1) {
-      background: #00f7ff;
-      top: -100px;
-      left: -100px;
-      animation-duration: 18s;
-    }
-
-    .blob:nth-child(2) {
-      background: #6c63ff;
-      bottom: -120px;
-      right: -120px;
-      animation-duration: 22s;
-    }
-
-    .blob:nth-child(3) {
-      background: #ff00c8;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation-duration: 25s;
-    }
+    .blob:nth-child(1) { background: #ffd000; top: -100px; left: -100px; }
+    .blob:nth-child(2) { background: #ff7a00; bottom: -120px; right: -120px; }
+    .blob:nth-child(3) { background: #ffaa00; top: 40%; left: 50%; transform: translate(-50%, -50%); }
 
     @keyframes move {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(80px, -100px) scale(1.2); }
-      100% { transform: translate(-60px, 60px) scale(0.9); }
+      0% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(100px,-80px) scale(1.2); }
+      100% { transform: translate(-60px,60px) scale(0.9); }
     }
 
-    section { padding: 80px 10%; }
+    section { padding: 100px 10%; }
+
     h1, h2 { margin-bottom: 20px; }
 
+    /* HERO */
     .hero {
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
-      text-align: center;
+      text-align: right;
     }
 
-    .hero h1 { font-size: 3rem; }
-    .hero span { color: #00f7ff; }
-    .hero p { margin-top: 10px; color: #aaa; }
+    .hero h1 {
+      font-size: 4rem;
+      color: #ffd000;
+    }
 
-    .about p { max-width: 700px; color: #ccc; line-height: 1.6; }
-
-    .skills ul { display: flex; gap: 15px; flex-wrap: wrap; }
+    /* SKILLS */
+    .skills ul {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
     .skills li {
       list-style: none;
-      background: rgba(26, 26, 26, 0.6);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 208, 0, 0.1);
       padding: 10px 15px;
       border-radius: 8px;
+      border: 1px solid rgba(255,208,0,0.3);
     }
 
+    /* CAREER TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      text-align: left;
+    }
+
+    th {
+      background: rgba(255,208,0,0.2);
+      color: #ffd000;
+    }
+
+    /* PROJECTS */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -98,8 +102,8 @@
     }
 
     .card {
-      background: rgba(26, 26, 26, 0.6);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,208,0,0.2);
       padding: 20px;
       border-radius: 12px;
       transition: 0.3s;
@@ -107,108 +111,90 @@
 
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 25px rgba(0, 247, 255, 0.4);
+      box-shadow: 0 0 30px rgba(255, 208, 0, 0.4);
     }
 
-    .contact a { color: #00f7ff; text-decoration: none; }
-
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: 0.6s;
-    }
-
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
+    /* CONTACT */
+    .contact a {
+      color: #ffd000;
+      text-decoration: none;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Background -->
   <div class="bg">
     <div class="blob"></div>
     <div class="blob"></div>
     <div class="blob"></div>
   </div>
 
+  <!-- HERO -->
   <section class="hero">
-    <h1>Hi, I'm <span>Vedant</span></h1>
-    <p>Frontend Developer | Cybersecurity Enthusiast</p>
+    <h1>Vedant Badgujar</h1>
   </section>
 
-  <section class="about fade">
-    <h2>About Me</h2>
-    <p>
-      I'm currently pursuing my engineering at Indira College of Engineering and Management with a CGPA of 9.35. I completed my 10th from Academic Heights Public School and 12th from Cambridge International Junior College, scoring 89.60% and 62.60% respectively.
-      <br><br>
-      I enjoy building aesthetic and functional web applications while also exploring the world of cybersecurity.
-    </p>
-  </section>
-
-  <section class="skills fade">
+  <!-- SKILLS -->
+  <section class="skills">
     <h2>Skills</h2>
     <ul>
       <li>HTML</li>
       <li>CSS</li>
       <li>JavaScript</li>
       <li>Python</li>
+      <li>C</li>
       <li>Cybersecurity Basics</li>
     </ul>
   </section>
 
-  <section class="fade">
+  <!-- CAREER -->
+  <section>
+    <h2>Career</h2>
+    <table>
+      <tr>
+        <th>Stage</th>
+        <th>Institution</th>
+        <th>Score</th>
+      </tr>
+      <tr>
+        <td>10th</td>
+        <td>Academic Heights Public School</td>
+        <td>89.60%</td>
+      </tr>
+      <tr>
+        <td>12th</td>
+        <td>Cambridge International Jr College</td>
+        <td>62.60%</td>
+      </tr>
+      <tr>
+        <td>Engineering</td>
+        <td>Indira College of Engineering and Management</td>
+        <td>CGPA: 9.35</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
     <h2>Projects</h2>
     <div class="projects">
-      <div class="card">
-        <h3>Mind Mitra</h3>
-        <p>A mental wellness focused project aimed at helping users manage and understand their thoughts better.</p>
-      </div>
-      <div class="card">
-        <h3>Sahaay</h3>
-        <p>A helpful platform designed to assist users with essential services and support systems.</p>
-      </div>
-      <div class="card">
-        <h3>Fascinating Clothings</h3>
-        <p>An e-commerce concept focused on stylish and modern clothing.</p>
-      </div>
-      <div class="card">
-        <h3>Raion Clothings</h3>
-        <p>A clothing brand concept with a focus on identity and unique aesthetics.</p>
-      </div>
-      <div class="card">
-        <h3>Personal Timetable</h3>
-        <p>A simple personal scheduling tool built for daily productivity management.</p>
-      </div>
+      <div class="card"><h3>Mind Mitra</h3></div>
+      <div class="card"><h3>Sahaay</h3></div>
+      <div class="card"><h3>Fascinating Clothings</h3></div>
+      <div class="card"><h3>Raion Clothings</h3></div>
+      <div class="card"><h3>Personal Timetable</h3></div>
     </div>
   </section>
 
-  <section class="contact fade">
+  <!-- CONTACT -->
+  <section class="contact">
     <h2>Contact</h2>
     <p>Email: vedant9badgujar@gmail.com</p>
-    <p>GitHub: <a href="https://github.com/CuratedChaos" target="_blank">github.com/CuratedChaos</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/vedant-badgujar-31aa74358" target="_blank">View Profile</a></p>
+    <p>Phone: +91 XXXXXXXX</p>
+    <p>GitHub: <a href="https://github.com/CuratedChaos" target="_blank">CuratedChaos</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/vedant-badgujar-31aa74358" target="_blank">Profile</a></p>
   </section>
-
-  <script>
-    const faders = document.querySelectorAll('.fade');
-
-    const appearOptions = { threshold: 0.2 };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('show');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  </script>
 
 </body>
 </html>
