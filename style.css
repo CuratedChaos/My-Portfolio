@@ -21,28 +21,27 @@ body {
     overflow-x: hidden;
 }
 
-/* --- THE MODERN MESH BG --- */
+/* ================= BACKGROUND ================= */
 .mesh-gradient {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     z-index: -2;
-    background: 
-        radial-gradient(at 0% 0%, rgba(112, 0, 255, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(0, 242, 255, 0.1) 0px, transparent 50%);
+    background:
+        radial-gradient(at 0% 0%, rgba(112, 0, 255, 0.2), transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 242, 255, 0.15), transparent 50%);
 }
 
 .noise-overlay {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
     z-index: -1;
     opacity: 0.04;
     background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-    pointer-events: none;
 }
 
-/* --- NAVIGATION --- */
+/* ================= NAV ================= */
 .glass-nav {
     position: fixed;
     top: 20px;
@@ -54,9 +53,9 @@ body {
 }
 
 .nav-content {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255,255,255,0.03);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.08);
     padding: 15px 30px;
     border-radius: 50px;
     display: flex;
@@ -64,89 +63,111 @@ body {
     align-items: center;
 }
 
-.logo-v { font-weight: 700; letter-spacing: 2px; }
+.logo-v {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
 
+/* NAV LINKS ANIMATION */
 .links a {
+    position: relative;
     color: var(--text-sub);
     text-decoration: none;
     margin-left: 25px;
-    font-size: 0.9rem;
     transition: 0.3s;
 }
 
-.links a:hover { color: var(--text-main); }
+.links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-blue);
+    transition: 0.3s;
+}
+
+.links a:hover {
+    color: white;
+}
+
+.links a:hover::after {
+    width: 100%;
+}
 
 .nav-cta {
-    background: var(--text-main);
-    color: var(--bg) !important;
+    background: white;
+    color: black !important;
     padding: 8px 20px;
     border-radius: 20px;
     font-weight: 600;
 }
 
-/* --- HERO --- */
+/* ================= HERO ================= */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
 }
 
 .badge {
     padding: 6px 15px;
-    background: rgba(0, 242, 255, 0.1);
     border: 1px solid var(--accent-blue);
     color: var(--accent-blue);
     border-radius: 30px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
+    font-size: 0.7rem;
     letter-spacing: 2px;
 }
 
 .title {
-    font-size: clamp(3rem, 8vw, 6rem);
+    font-size: clamp(3rem, 8vw, 7rem);
     margin: 20px 0;
-    line-height: 1;
 }
 
-.italic {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--text-sub);
+/* BIG NAME GLOW */
+.name-glow {
+    background: linear-gradient(90deg, #00f2ff, #7000ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 40px rgba(112, 0, 255, 0.5);
 }
 
 .description {
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
     color: var(--text-sub);
     font-size: 1.2rem;
-    line-height: 1.6;
 }
 
+/* BUTTON */
 .btn-main {
-    display: inline-block;
     margin-top: 40px;
     padding: 18px 40px;
-    background: transparent;
     border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
     color: white;
     text-decoration: none;
-    border-radius: 10px;
     transition: 0.4s;
 }
 
 .btn-main:hover {
     background: white;
     color: black;
+    box-shadow: 0 0 25px rgba(0,242,255,0.4);
     transform: translateY(-5px);
 }
 
-/* --- PROJECTS --- */
-.container { padding: 100px 10%; }
+/* ================= PROJECTS ================= */
+.container {
+    padding: 100px 10%;
+}
 
-.section-header h2 { font-size: 3rem; margin-bottom: 10px; }
+.section-header h2 {
+    font-size: 3rem;
+}
 
 .project-grid {
     display: grid;
@@ -157,13 +178,13 @@ body {
 
 .p-card {
     height: 400px;
+    padding: 40px;
+    border-radius: 25px;
     background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
     border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 24px;
-    padding: 40px;
     display: flex;
     align-items: flex-end;
-    transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: 0.4s;
     position: relative;
     overflow: hidden;
 }
@@ -171,56 +192,105 @@ body {
 .p-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at center, var(--accent-purple), transparent 70%);
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--accent-purple), transparent);
     opacity: 0;
     transition: 0.5s;
 }
 
-.p-card:hover::before { opacity: 0.2; }
-
-.p-card:hover {
-    transform: translateY(-15px);
-    border-color: rgba(255,255,255,0.2);
+.p-card:hover::before {
+    opacity: 0.2;
 }
 
-/* --- CAREER --- */
+.p-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* ================= CAREER ================= */
 .career-layout {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     gap: 50px;
 }
 
-.career-list { flex: 1; }
-
 .c-item {
     display: flex;
-    align-items: center;
     gap: 30px;
-    padding: 30px 0;
+    padding: 25px 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
 }
 
-.c-val { font-size: 3rem; font-weight: 700; color: var(--accent-blue); }
+.c-item:hover {
+    transform: translateX(10px);
+}
 
-/* --- FOOTER --- */
-footer { padding: 100px 10% 50px; }
+.c-val {
+    font-size: 3rem;
+    color: var(--accent-blue);
+}
+
+/* ================= CONTACT ================= */
+footer {
+    padding: 100px 10%;
+}
 
 .footer-glass {
-    padding: 80px;
-    background: rgba(255,255,255,0.02);
+    padding: 60px;
     border-radius: 40px;
     text-align: center;
+    background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.05);
 }
 
-.f-links { margin: 40px 0; display: flex; justify-content: center; gap: 30px; }
+/* FORM */
+form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-.f-links a { color: var(--text-sub); text-decoration: none; font-size: 1.1rem; }
+form input, form textarea {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.02);
+    color: white;
+}
 
+form textarea {
+    min-height: 120px;
+}
+
+/* LINKS */
+.f-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.f-links a {
+    color: var(--text-sub);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.f-links a:hover {
+    color: white;
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
-    .career-layout { flex-direction: column; text-align: center; }
-    .nav-content { padding: 10px 20px; }
-    .links { display: none; }
+    .links {
+        display: none;
+    }
+
+    .career-layout {
+        flex-direction: column;
+        text-align: center;
+    }
 }
