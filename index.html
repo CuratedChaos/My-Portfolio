@@ -1,269 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vedant Badgujar</title>
-<link rel="icon" href="favicon.ico">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background: #000;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* NAVBAR */
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  z-index: 100;
-  backdrop-filter: blur(10px);
-}
-
-.logo {
-  color: #ffd000;
-  font-weight: 700;
-}
-
-.nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #aaa;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #ffd000;
-}
-
-/* 🔥 BREATHING BACKGROUND */
-.bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,208,0,0.5), transparent 60%),
-    radial-gradient(circle at 80% 70%, rgba(255,122,0,0.4), transparent 60%),
-    radial-gradient(circle at 50% 50%, rgba(255,180,0,0.25), transparent 70%);
-
-  filter: blur(100px);
-  animation: breathe 10s infinite alternate ease-in-out;
-}
-
-@keyframes breathe {
-  0% { transform: scale(1) translate(0,0); }
-  50% { transform: scale(1.2) translate(-40px, 30px); }
-  100% { transform: scale(1.1) translate(30px, -40px); }
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-left: 10%;
-}
-
-.hero h1 {
-  font-size: 5rem;
-  line-height: 1;
-}
-
-.hero span {
-  display: block;
-  font-size: 6.5rem;
-
-  background: linear-gradient(90deg, #ffd000, #ff7a00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow:
-    0 0 20px rgba(255,208,0,0.7),
-    0 0 40px rgba(255,122,0,0.5);
-}
-
-.hero p {
-  margin-top: 15px;
-  color: #aaa;
-}
-
-.hero button {
-  margin-top: 25px;
-  padding: 12px 25px;
-  background: transparent;
-  border: 1px solid #ffd000;
-  color: #ffd000;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero button:hover {
-  background: #ffd000;
-  color: black;
-  box-shadow: 0 0 20px #ffd000;
-}
-
-/* SECTIONS */
-section {
-  padding: 120px 10%;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #ffd000;
-}
-
-/* PROJECTS */
-.carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-}
-
-.card {
-  min-width: 250px;
-  padding: 40px;
-  border-radius: 12px;
-
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,208,0,0.3);
-  backdrop-filter: blur(10px);
-
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 30px rgba(255,208,0,0.7);
-}
-
-/* CAREER */
-.grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.box {
-  flex: 1;
-  min-width: 250px;
-  padding: 30px;
-
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,208,0,0.3);
-  border-radius: 12px;
-
-  transition: 0.3s;
-}
-
-.box:hover {
-  box-shadow: 0 0 25px rgba(255,208,0,0.5);
-}
-
-/* CONTACT */
-.contact-box {
-  padding: 30px;
-  border-radius: 12px;
-
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,208,0,0.3);
-}
-
-.contact-box a {
-  color: #ffd000;
-  text-decoration: none;
-  margin-right: 15px;
-}
-
-.contact-box a:hover {
-  text-decoration: underline;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedant Badgujar | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<nav>
-  <div class="logo">VB</div>
-  <div class="nav-links">
-    <a href="#projects">Projects</a>
-    <a href="#career">Career</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+    <div class="cursor-glow" id="cursor"></div>
+    <div class="bg-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
 
-<div class="bg"></div>
+    <nav class="navbar">
+        <div class="logo">V<span>B</span></div>
+        <div class="nav-links">
+            <a href="#projects" class="nav-item">Projects</a>
+            <a href="#career" class="nav-item">Career</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </div>
+    </nav>
 
-<section class="hero">
-  <div>
-    <h1>
-      Vedant
-      <span>Badgujar</span>
-    </h1>
-    <p>Frontend Developer • Cybersecurity Enthusiast</p>
-    <button onclick="scrollToSection('projects')">View Projects ↓</button>
-  </div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="reveal-text">Vedant</h1>
+            <h1 class="reveal-text gradient-text">Badgujar</h1>
+            <p class="subtitle">Frontend Developer <span class="separator">•</span> Cybersecurity Enthusiast</p>
+            <div class="cta-wrapper">
+                <button class="btn-primary" onclick="scrollToSection('projects')">
+                    Explore My Work
+                    <span class="btn-glow"></span>
+                </button>
+            </div>
+        </div>
+    </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="carousel" id="carousel">
-    <div class="card">Mind Mitra</div>
-    <div class="card">Sahaay</div>
-    <div class="card">Fascinating Clothings</div>
-    <div class="card">Raion Clothings</div>
-    <div class="card">Timetable</div>
-  </div>
-</section>
+    <section id="projects" class="section">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="project-card">
+                    <div class="card-inner">
+                        <h3>Mind Mitra</h3>
+                        <p>Mental Health Companion</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <h3>Sahaay</h3>
+                        <p>Community Support App</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <h3>Fascinating Clothings</h3>
+                        <p>E-commerce UX</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <h3>Raion Clothings</h3>
+                        <p>Fashion Brand Design</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-inner">
+                        <h3>Personal Timetable</h3>
+                        <p>Productivity Tool</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="career">
-  <h2>Career</h2>
-  <div class="grid">
-    <div class="box">10th - 89.60%</div>
-    <div class="box">12th - 62.60%</div>
-    <div class="box">Engineering - 9.35 CGPA</div>
-  </div>
-</section>
+    <section id="career" class="section">
+        <h2 class="section-title">Career Milestones</h2>
+        <div class="career-grid">
+            <div class="career-card">
+                <span class="year">Secondary School</span>
+                <h4>10th Grade</h4>
+                <div class="stat">89.60%</div>
+            </div>
+            <div class="career-card">
+                <span class="year">Higher Secondary</span>
+                <h4>12th Grade</h4>
+                <div class="stat">62.60%</div>
+            </div>
+            <div class="career-card highlight">
+                <span class="year">Undergraduate</span>
+                <h4>Engineering</h4>
+                <div class="stat">9.35 CGPA</div>
+            </div>
+        </div>
+    </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="contact-box">
-    <p>Email: vedant9badgujar@gmail.com</p>
-    <p>Phone: +91 8485031964</p>
-    <br>
-    <a href="https://github.com/CuratedChaos" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/vedant-badgujar-31aa74358" target="_blank">LinkedIn</a>
-  </div>
-</section>
+    <section id="contact" class="section">
+        <div class="contact-glass">
+            <h2>Let's Connect</h2>
+            <div class="contact-links">
+                <a href="mailto:vedant9badgujar@gmail.com" class="contact-item">Email</a>
+                <a href="tel:+918485031964" class="contact-item">Phone</a>
+                <a href="https://github.com/CuratedChaos" target="_blank" class="contact-item">GitHub</a>
+                <a href="https://www.linkedin.com/in/vedant-badgujar-31aa74358" target="_blank" class="contact-item">LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
-<script>
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({
-    behavior: "smooth"
-  });
-}
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
