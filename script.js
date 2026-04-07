@@ -83,3 +83,23 @@ document.querySelectorAll("button").forEach(btn => {
     setTimeout(() => circle.remove(), 600);
   });
 });
+
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 208, 0, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
