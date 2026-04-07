@@ -124,3 +124,44 @@ style.innerHTML = `
 }
 `;
 document.head.appendChild(style);
+tsParticles.load("particles-js", {
+    background: {
+        color: "transparent"
+    },
+    particles: {
+        number: {
+            value: 60
+        },
+        color: {
+            value: ["#00f2ff", "#7000ff"]
+        },
+        links: {
+            enable: true,
+            color: "#00f2ff",
+            opacity: 0.2
+        },
+        move: {
+            enable: true,
+            speed: 1
+        },
+        size: {
+            value: 2
+        },
+        opacity: {
+            value: 0.5
+        }
+    },
+    interactivity: {
+        events: {
+            onHover: {
+                enable: true,
+                mode: "repulse"
+            }
+        },
+        modes: {
+            repulse: {
+                distance: 100
+            }
+        }
+    }
+});
