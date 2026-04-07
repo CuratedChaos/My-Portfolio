@@ -1,163 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vedant Badgujar</title>
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+
+    <!-- CSS goes here -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: black;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: orange;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: orange;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">VB</div>
-  <div class="nav-links">
-    <a href="#projects">Projects</a>
-    <a href="#career">Career</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+    <h1>Hello Baddy 🚀</h1>
+    <button onclick="showMessage()">Click Me</button>
 
-<div class="bg"></div>
+    <!-- JS goes here -->
+    <script>
+        function showMessage() {
+            alert("Website working perfectly 🔥");
+        }
+    </script>
 
-<section class="hero">
-  <h1>
-    Vedant
-    <span>Badgujar</span>
-  </h1>
-  <p>Frontend Developer • Cybersecurity</p>
-  <button onclick="scrollToSection('projects')">View Work ↓</button>
-</section>
-
-<section id="projects" class="projects">
-  <h2>Projects</h2>
-
-  <div class="carousel">
-    <div class="card">Mind Mitra</div>
-    <div class="card">Sahaay</div>
-    <div class="card">Fascinating Clothings</div>
-    <div class="card">Raion Clothings</div>
-    <div class="card">Timetable</div>
-  </div>
-</section>
-
-<section id="career" class="career">
-  <h2>Career</h2>
-  <div class="grid">
-    <div class="box">10th - 89.60%</div>
-    <div class="box">12th - 62.60%</div>
-    <div class="box">Engineering - 9.35 CGPA</div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p>Email: vedant9badgujar@gmail.com</p>
-  <p>Phone: +91 8485031964</p>
-  <p>GitHub: CuratedChaos</p>
-  <p>LinkedIn: Vedant Badgujar</p>
-</section>
-
-<script src="script.js"></script>
 </body>
 </html>
-
-<!-- ================= style.css ================= -->
-<style>
-body {
-  margin: 0;
-  background: #000;
-  color: #fff;
-  font-family: sans-serif;
-}
-
-nav {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-.logo { color: #ffd000; font-weight: bold; }
-
-.nav-links a {
-  margin: 0 10px;
-  color: #fff;
-  text-decoration: none;
-}
-
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 10%;
-}
-
-.hero h1 {
-  font-size: 5rem;
-  color: #ffd000;
-}
-
-.hero span {
-  display: block;
-  font-size: 6rem;
-}
-
-.hero button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: transparent;
-  border: 1px solid #ffd000;
-  color: #ffd000;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero button:hover {
-  background: #ffd000;
-  color: black;
-}
-
-.projects, .career, .contact {
-  padding: 100px 10%;
-}
-
-.carousel {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-}
-
-.card {
-  min-width: 200px;
-  padding: 40px;
-  border: 1px solid #ffd000;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ffd000;
-}
-
-.grid {
-  display: flex;
-  gap: 20px;
-}
-
-.box {
-  padding: 30px;
-  border: 1px solid #ffd000;
-}
-
-.bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 30% 30%, #ffd00033, transparent),
-              radial-gradient(circle at 70% 70%, #ff7a0033, transparent);
-  z-index: -1;
-}
-</style>
