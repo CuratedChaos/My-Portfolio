@@ -103,3 +103,12 @@ button {
     opacity: 0;
   }
 }
+
+
+<!-- ================= script.js ================= -->
+<script>
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
