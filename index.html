@@ -3,328 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vedant Badgujar | Portfolio</title>
+  <title>Vedant Badgujar</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3EVB%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-    body {
-      color: #fff;
-      background: #000;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    /* ===== Background ===== */
-    .bg {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      filter: blur(80px);
-    }
-
-    .blob {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      opacity: 0.5;
-      animation: move 20s infinite alternate ease-in-out;
-    }
-
-    .blob:nth-child(1) { background: #ffd000; top: -100px; left: -100px; }
-    .blob:nth-child(2) { background: #ff7a00; bottom: -120px; right: -120px; }
-    .blob:nth-child(3) { background: #ffaa00; top: 40%; left: 50%; transform: translate(-50%, -50%); }
-
-    @keyframes move {
-      0% { transform: translate(0,0) scale(1); }
-      50% { transform: translate(100px,-80px) scale(1.2); }
-      100% { transform: translate(-60px,60px) scale(0.9); }
-    }
-
-    section { padding: 100px 10%; }
-
-    h1, h2 { margin-bottom: 20px; }
-
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      z-index: 10;
-    }
-
-    nav a {
-      color: #ffd000;
-      text-decoration: none;
-      transition: 0.3s;
-      margin: 0 10px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo {
-      font-weight: 600;
-      color: #ffd000;
-      font-size: 1.2rem;
-    }
-
-    .search {
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: none;
-      outline: none;
-      background: rgba(255,255,255,0.1);
-      color: #fff;
-    }
-
-    nav a:hover { color: #ff7a00; }
-
-    /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      text-align: left;
-      padding-left: 10%;
-    }
-
-    .hero h1 {
-      font-size: 5rem;
-      color: #ffd000;
-      line-height: 1.1;
-    }
-
-    .hero .last {
-      font-size: 6rem;
-      color: #ffd000;
-      display: block;
-    }
-
-    /* SKILLS */
-    .skills ul {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .skills li {
-      list-style: none;
-      background: rgba(255, 208, 0, 0.1);
-      padding: 10px 15px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,208,0,0.3);
-      transition: 0.3s;
-    }
-
-    .skills li:hover {
-      box-shadow: 0 0 15px rgba(255,208,0,0.5);
-    }
-
-    /* CAREER TABLE */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-
-    th, td {
-      padding: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    th {
-      background: rgba(255,208,0,0.2);
-      color: #ffd000;
-    }
-
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,208,0,0.2);
-      padding: 20px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 40px rgba(255, 208, 0, 0.5);
-    }
-
-    .card button {
-      margin-top: 10px;
-      padding: 8px 12px;
-      background: #ffd000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    /* CONTACT */
-    .contact a {
-      color: #ffd000;
-      text-decoration: none;
-    }
-
-    /* FADE ANIMATION */
-    .fade {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: 0.8s;
-    }
-
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-  </style>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="nav-left">
-      <div class="logo">VB</div>
-      <a href="#skills">Skills</a>
-      <a href="#career">Career</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <input class="search" type="text" placeholder="Search...">
-  </nav>
-
-  <div class="bg">
-    <div class="blob"></div>
-    <div class="blob"></div>
-    <div class="blob"></div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">VB</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#career">Career</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
 
-  <!-- HERO -->
-  <section class="hero">
+<!-- BACKGROUND -->
+<div class="bg"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
     <h1>
       Vedant
-      <span class="last">Badgujar</span>
+      <span>Badgujar</span>
     </h1>
-  </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="skills fade">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>Python</li>
-      <li>C</li>
-      <li>Cybersecurity Basics</li>
-    </ul>
-  </section>
+    <p class="subtitle">
+      Frontend Developer • Cybersecurity Enthusiast
+    </p>
 
-  <!-- CAREER -->
-  <section id="career" class="fade">
-    <h2>Career</h2>
-    <table>
-      <tr>
-        <th>Stage</th>
-        <th>Institution</th>
-        <th>Score</th>
-      </tr>
-      <tr>
-        <td>10th</td>
-        <td>Academic Heights Public School</td>
-        <td>89.60%</td>
-      </tr>
-      <tr>
-        <td>12th</td>
-        <td>Cambridge International Jr College</td>
-        <td>62.60%</td>
-      </tr>
-      <tr>
-        <td>Engineering</td>
-        <td>Indira College of Engineering and Management</td>
-        <td>CGPA: 9.35</td>
-      </tr>
-    </table>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="fade">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Mind Mitra</h3>
-        <p>Mental wellness platform.</p>
-        <button>View</button>
-      </div>
-      <div class="card">
-        <h3>Sahaay</h3>
-        <p>Support and service platform.</p>
-        <button>View</button>
-      </div>
-      <div class="card">
-        <h3>Fascinating Clothings</h3>
-        <p>E-commerce clothing brand.</p>
-        <button>View</button>
-      </div>
-      <div class="card">
-        <h3>Raion Clothings</h3>
-        <p>Brand-focused clothing concept.</p>
-        <button>View</button>
-      </div>
-      <div class="card">
-        <h3>Personal Timetable</h3>
-        <p>Daily productivity tool.</p>
-        <button>View</button>
-      </div>
+    <div class="hero-buttons">
+      <button onclick="scrollToSection('projects')" class="btn-primary">
+        View Projects ↓
+      </button>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact fade">
-    <h2>Contact</h2>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="carousel-container">
+    <button class="nav-btn left" onclick="scrollCarousel(-1)">‹</button>
+
+    <div class="carousel" id="carousel">
+      <div class="card">Mind Mitra</div>
+      <div class="card">Sahaay</div>
+      <div class="card">Fascinating Clothings</div>
+      <div class="card">Raion Clothings</div>
+      <div class="card">Personal Timetable</div>
+    </div>
+
+    <button class="nav-btn right" onclick="scrollCarousel(1)">›</button>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career" class="section">
+  <h2 class="section-title">Career</h2>
+
+  <div class="career-grid">
+    <div class="career-card">
+      <h3>10th</h3>
+      <p>Academic Heights Public School</p>
+      <span>89.60%</span>
+    </div>
+
+    <div class="career-card">
+      <h3>12th</h3>
+      <p>Cambridge International Jr College</p>
+      <span>62.60%</span>
+    </div>
+
+    <div class="career-card highlight">
+      <h3>Engineering</h3>
+      <p>Indira College of Engineering & Management</p>
+      <span>CGPA: 9.35</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section contact">
+  <h2 class="section-title">Contact</h2>
+
+  <div class="contact-box">
     <p>Email: vedant9badgujar@gmail.com</p>
     <p>Phone: +91 8485031964</p>
-    <p>GitHub: <a href="https://github.com/CuratedChaos" target="_blank">CuratedChaos</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/vedant-badgujar-31aa74358" target="_blank">Profile</a></p>
-  </section>
 
-  <script>
-    const faders = document.querySelectorAll('.fade');
+    <div class="contact-links">
+      <a href="https://github.com/CuratedChaos" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/vedant-badgujar-31aa74358" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</section>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    });
-
-    faders.forEach(el => observer.observe(el));
-  </script>
-
+<script src="script.js"></script>
 </body>
 </html>
