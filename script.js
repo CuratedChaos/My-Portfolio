@@ -1,61 +1,37 @@
-// Custom Cursor Glow
-const cursor = document.getElementById('cursor');
-
-document.addEventListener('mousemove', (e) => {
-    // Subtle lag effect for the glow
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
-
-// Create the cursor element in CSS for better performance
-const style = document.createElement('style');
-style.innerHTML = `
-    .cursor-glow {
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, rgba(255,208,0,0.1) 0%, transparent 70%);
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition: width 0.3s, height 0.3s;
-    }
-`;
-document.head.appendChild(style);
-
-// Smooth Scroll Function
-function scrollToSection(id) {
-    const element = document.getElementById(id);
-    window.scrollTo({
-        top: element.offsetTop - 80, // Offset for sticky nav
-        behavior: 'smooth'
-    });
-}
-
-// Reveal Animation on Scroll
+// Fade-in Reveal Animation
 const observerOptions = {
-    threshold: 0.1
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
 };
 
-const observer = new IntersectionObserver((entries) => {
+const revealOnScroll = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('active');
         }
     });
 }, observerOptions);
 
-document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'all 0.8s ease-out';
-    observer.observe(section);
+document.querySelectorAll('section, .p-card, .c-item').forEach(el => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(30px)";
+    el.style.transition = "all 0.8s cubic-bezier(0.23, 1, 0.32, 1)";
+    revealOnScroll.observe(el);
 });
 
-// Horizontal Scroll with Mouse Wheel for Projects
-const scrollContainer = document.querySelector(".carousel-container");
-scrollContainer.addEventListener("wheel", (evt) => {
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
+// Adding Active Class Styles via JS for simplicity
+const revealStyle = document.createElement('style');
+revealStyle.innerHTML = `
+    .active {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+`;
+document.head.appendChild(revealStyle);
+
+// Subtle Parallax for Background
+document.addEventListener('mousemove', (e) => {
+    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+    document.querySelector('.mesh-gradient').style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
