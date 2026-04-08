@@ -368,88 +368,43 @@ textarea {
 HOBBY INTERACTIONS
 ============================== */
 
-.hobby-card {
-    position: relative;
-    overflow: hidden;
-}
-
-/* COOKING SIZZLE */
-.hobby-card.cooking:hover::after {
-    content: "🔥🔥🔥";
-    position: absolute;
-    bottom: -20px;
-    font-size: 20px;
-    animation: rise 1s ease forwards;
-}
-
-@keyframes rise {
-    to {
-        bottom: 40px;
-        opacity: 0;
-    }
-}
-
-/* GUITAR NOTES */
-.hobby-card.guitar:hover::after {
-    content: "♪ ♫ ♪";
-    position: absolute;
-    top: -20px;
-    animation: fall 1s linear forwards;
-}
-
-@keyframes fall {
-    to {
-        top: 60px;
-        opacity: 0;
-    }
-}
-
-/* F1 TIRES DROP */
-.hobby-card.f1:hover::after {
-    content: "🛞🛞";
-    position: absolute;
-    top: -20px;
-    animation: drop 0.8s ease forwards;
-}
-
-@keyframes drop {
-    to {
-        top: 50px;
-        opacity: 0;
-    }
-}
-
-/* TECH GLOW */
-.hobby-card.tech:hover {
-    box-shadow: 0 0 30px rgba(0,242,255,0.6);
-    transform: scale(1.1) rotate(1deg);
-}
+/* SCENE */
 .hover-scene {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    overflow: visible;
 }
 
-/* POP OBJECT (top) */
+/* TOP OBJECT (CAR / GUITAR / FOOD) */
 .pop-object {
     position: absolute;
-    top: -60px;
+    top: -70px;
     left: 50%;
     transform: translateX(-50%) scale(0);
-    font-size: 40px;
+    font-size: 50px;
     transition: 0.3s ease;
 }
 
-/* DROP ITEMS */
-.drop-item {
+/* ROPE */
+.rope {
     position: absolute;
-    top: -80px;
-    font-size: 28px;
+    width: 2px;
+    height: 60px;
+    background: rgba(255,255,255,0.3);
+    top: -10px;
+    left: 50%;
     transform-origin: top center;
 }
 
-/* ACTIVE STATE */
+/* HANGING ITEM */
+.hang-item {
+    position: absolute;
+    top: 60px;
+    left: -12px;
+    font-size: 28px;
+}
+
+/* ACTIVE */
 .hobby-card.active .pop-object {
     transform: translateX(-50%) scale(1);
 }
