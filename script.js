@@ -165,3 +165,17 @@ tsParticles.load("particles-js", {
         }
     }
 });
+<script>
+tsParticles.load("particles", {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#ffd000" },
+    links: {
+      enable: true,
+      color: "#ff7a00"
+    },
+    move: { enable: true, speed: 1 },
+    size: { value: 2 }
+  }
+});
+</script>
