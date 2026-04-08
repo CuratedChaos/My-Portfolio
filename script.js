@@ -252,3 +252,81 @@ window.addEventListener("resize", () => {
     canvas.height = window.innerHeight;
     initParticles();
 });
+// ==============================
+// HOBBY INTERACTIVE SCENES
+// ==============================
+
+const hobbyConfigs = {
+    f1: {
+        pop: "🏎️",
+        drops: ["🛞", "🛞", "🛞"]
+    },
+    guitar: {
+        pop: "🎸",
+        drops: ["♪", "♫", "♪"]
+    },
+    cooking: {
+        pop: "🍔",
+        drops: ["🔪", "🔪", "🍳"]
+    },
+    tech: {
+        pop: "🧠",
+        drops: ["💻", "⚡", "🧬"]
+    }
+};
+
+document.querySelectorAll(".hobby-card").forEach(card => {
+    const type = [...card.classList].find(c => hobbyConfigs[c]);
+
+    if (!type) return;
+
+    const scene = card.querySelector(".hover-scene");
+
+    let interval;
+
+    card.addEventListener("mouseenter", () => {
+        card.classList.add("active");
+
+        const config = hobbyConfigs[type];
+
+        // POP OBJECT
+        const pop = document.createElement("div");
+        pop.className = "pop-object";
+        pop.innerText = config.pop;
+        scene.appendChild(pop);
+
+        // DROP LOOP
+        interval = setInterval(() => {
+            const item = document.createElement("div");
+            item.className = "drop-item";
+            item.innerText = config.drops[Math.floor(Math.random() * config.drops.length)];
+
+            item.style.left = Math.random() * 80 + "%";
+
+            scene.appendChild(item);
+
+            let angle = Math.random() * 40 - 20;
+            let fall = 0;
+
+            const swing = setInterval(() => {
+                fall += 2;
+                angle *= 0.98;
+
+                item.style.top = fall + "px";
+                item.style.transform = `rotate(${angle}deg)`;
+
+                if (fall > 80) {
+                    clearInterval(swing);
+                    item.remove();
+                }
+            }, 16);
+
+        }, 300);
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.classList.remove("active");
+        scene.innerHTML = "";
+        clearInterval(interval);
+    });
+});
