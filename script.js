@@ -256,77 +256,89 @@ window.addEventListener("resize", () => {
 // HOBBY INTERACTIVE SCENES
 // ==============================
 
-const hobbyConfigs = {
+// ==============================
+// HANGING PHYSICS SYSTEM
+// ==============================
+
+const configs = {
     f1: {
         pop: "🏎️",
-        drops: ["🛞", "🛞", "🛞"]
+        items: ["🛞", "🛞", "🛞"]
     },
     guitar: {
         pop: "🎸",
-        drops: ["♪", "♫", "♪"]
+        items: ["♪", "♫", "♪"]
     },
     cooking: {
         pop: "🍔",
-        drops: ["🔪", "🔪", "🍳"]
+        items: ["🔪", "🍳", "🔪"]
     },
     tech: {
         pop: "🧠",
-        drops: ["💻", "⚡", "🧬"]
+        items: ["💻", "⚡", "🧬"]
     }
 };
 
 document.querySelectorAll(".hobby-card").forEach(card => {
-    const type = [...card.classList].find(c => hobbyConfigs[c]);
-
+    const type = [...card.classList].find(c => configs[c]);
     if (!type) return;
 
     const scene = card.querySelector(".hover-scene");
-
-    let interval;
+    let animationFrame;
 
     card.addEventListener("mouseenter", () => {
         card.classList.add("active");
 
-        const config = hobbyConfigs[type];
+        const cfg = configs[type];
 
         // POP OBJECT
         const pop = document.createElement("div");
         pop.className = "pop-object";
-        pop.innerText = config.pop;
+        pop.innerText = cfg.pop;
         scene.appendChild(pop);
 
-        // DROP LOOP
-        interval = setInterval(() => {
-            const item = document.createElement("div");
-            item.className = "drop-item";
-            item.innerText = config.drops[Math.floor(Math.random() * config.drops.length)];
+        // CREATE HANGING ITEMS
+        const ropes = [];
 
-            item.style.left = Math.random() * 80 + "%";
+        cfg.items.forEach((item, i) => {
+            const rope = document.createElement("div");
+            rope.className = "rope";
 
-            scene.appendChild(item);
+            rope.style.left = (30 + i * 20) + "%";
 
-            let angle = Math.random() * 40 - 20;
-            let fall = 0;
+            const hang = document.createElement("div");
+            hang.className = "hang-item";
+            hang.innerText = item;
 
-            const swing = setInterval(() => {
-                fall += 2;
-                angle *= 0.98;
+            rope.appendChild(hang);
+            scene.appendChild(rope);
 
-                item.style.top = fall + "px";
-                item.style.transform = `rotate(${angle}deg)`;
+            ropes.push({
+                el: rope,
+                angle: Math.random() * 0.5,
+                velocity: 0
+            });
+        });
 
-                if (fall > 80) {
-                    clearInterval(swing);
-                    item.remove();
-                }
-            }, 16);
+        // SWING LOOP (pendulum fake physics)
+        function animate() {
+            ropes.forEach(r => {
+                r.velocity += -0.002 * r.angle; // gravity
+                r.velocity *= 0.98; // damping
+                r.angle += r.velocity;
 
-        }, 300);
+                r.el.style.transform = `rotate(${r.angle}rad)`;
+            });
+
+            animationFrame = requestAnimationFrame(animate);
+        }
+
+        animate();
     });
 
     card.addEventListener("mouseleave", () => {
         card.classList.remove("active");
         scene.innerHTML = "";
-        clearInterval(interval);
+        cancelAnimationFrame(animationFrame);
     });
 });
