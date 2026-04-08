@@ -424,3 +424,32 @@ HOBBY INTERACTIONS
     box-shadow: 0 0 30px rgba(0,242,255,0.6);
     transform: scale(1.1) rotate(1deg);
 }
+.hover-scene {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+/* POP OBJECT (top) */
+.pop-object {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    font-size: 40px;
+    transition: 0.3s ease;
+}
+
+/* DROP ITEMS */
+.drop-item {
+    position: absolute;
+    top: -80px;
+    font-size: 28px;
+    transform-origin: top center;
+}
+
+/* ACTIVE STATE */
+.hobby-card.active .pop-object {
+    transform: translateX(-50%) scale(1);
+}
