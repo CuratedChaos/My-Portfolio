@@ -1,111 +1,126 @@
-// ================= SMOOTH SCROLL =================
-function scrollToSection(id) {
-  const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({
-      behavior: "smooth"
+// ==============================
+// SAFE LOAD (prevents duplication bugs)
+// ==============================
+document.addEventListener("DOMContentLoaded", () => {
+
+    // ==============================
+    // SCROLL REVEAL (no repeat glitch)
+    // ==============================
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target); // IMPORTANT: prevents repeat
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".p-card, .c-item, .social-card, .hobby-card").forEach(el => {
+        el.classList.add("hidden");
+        observer.observe(el);
     });
-  }
-}
 
 
-// ================= PARTICLES =================
-tsParticles.load("particles", {
-  particles: {
-    number: {
-      value: 30
-    },
-    color: {
-      value: ["#ffd000", "#ff7a00"]
-    },
-    links: {
-      enable: true,
-      color: "#ff7a00",
-      opacity: 0.3
-    },
-    move: {
-      enable: true,
-      speed: 0.8,
-      outModes: {
-        default: "bounce"
-      }
-    },
-    size: {
-      value: { min: 1, max: 3 }
-    },
-    opacity: {
-      value: 0.5
+    // ==============================
+    // NAVBAR SCROLL EFFECT
+    // ==============================
+    const nav = document.querySelector(".nav-content");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            nav.style.background = "rgba(255,255,255,0.08)";
+            nav.style.backdropFilter = "blur(25px)";
+        } else {
+            nav.style.background = "rgba(255,255,255,0.05)";
+        }
+    });
+
+
+    // ==============================
+    // PARALLAX BACKGROUND
+    // ==============================
+    const bg = document.querySelector(".mesh-gradient");
+
+    document.addEventListener("mousemove", (e) => {
+        if (!bg) return;
+
+        const x = (e.clientX - window.innerWidth / 2) * 0.01;
+        const y = (e.clientY - window.innerHeight / 2) * 0.01;
+
+        bg.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+
+    // ==============================
+    // SMOOTH SCROLL NAV
+    // ==============================
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+
+
+    // ==============================
+    // BUTTON MICRO INTERACTION
+    // ==============================
+    document.querySelectorAll(".btn-main").forEach(btn => {
+        btn.addEventListener("mouseenter", () => {
+            btn.style.transform = "scale(1.05)";
+        });
+
+        btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "scale(1)";
+        });
+    });
+
+
+    // ==============================
+    // EMAIL FORM → GMAIL
+    // ==============================
+    const form = document.getElementById("contactForm");
+
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const subject = document.getElementById("subject").value;
+            const message = document.getElementById("message").value;
+
+            const gmailURL =
+                `https://mail.google.com/mail/?view=cm&fs=1` +
+                `&to=vedant9badgujar@gmail.com` +
+                `&su=${encodeURIComponent(subject)}` +
+                `&body=${encodeURIComponent(message + "\n\nFrom: " + email)}`;
+
+            window.open(gmailURL, "_blank");
+        });
     }
-  },
-  interactivity: {
-    events: {
-      onHover: {
-        enable: true,
-        mode: "repulse"
-      }
-    },
-    modes: {
-      repulse: {
-        distance: 80
-      }
-    }
-  }
+
 });
 
 
-// ================= CAROUSEL DRAG SCROLL =================
-const carousel = document.querySelector(".carousel");
-
-if (carousel) {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  carousel.addEventListener("mousedown", (e) => {
-    isDown = true;
-    carousel.classList.add("active");
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-  });
-
-  carousel.addEventListener("mouseleave", () => {
-    isDown = false;
-  });
-
-  carousel.addEventListener("mouseup", () => {
-    isDown = false;
-  });
-
-  carousel.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 2;
-    carousel.scrollLeft = scrollLeft - walk;
-  });
+// ==============================
+// ADD REVEAL ANIMATION STYLE (auto)
+// ==============================
+const style = document.createElement("style");
+style.innerHTML = `
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
-
-
-// ================= NAV ACTIVE LINK =================
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+`;
+document.head.appendChild(style);
