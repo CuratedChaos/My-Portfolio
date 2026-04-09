@@ -105,48 +105,16 @@ body {
 }
 
 /* HERO */
-/* SPLIT HERO */
-.split {
+.hero {
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 60px;
+    justify-content: center;
+    text-align: center;
 }
 
-/* LEFT SIDE */
-.hero-left {
-    flex: 1;
-    text-align: left;
-}
-
-/* NAME */
-.name-white {
-    color: white;
-    font-size: clamp(3rem, 7vw, 6rem);
-    margin-bottom: 20px;
-}
-
-/* TAGS */
-.hero-tags {
-    color: var(--text-sub);
-    font-size: 1.3rem;
-    line-height: 1.8;
-}
-
-/* RIGHT SIDE */
-.hero-right {
-    flex: 1;
-}
-
-/* ABOUT TEXT */
-.hero-about {
-    color: var(--text-sub);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 500px;
-}
-.hero-tags {
-    color: var(--accent-blue);
+.hero-inner {
+    max-width: 800px;
 }
 
 /* badge */
