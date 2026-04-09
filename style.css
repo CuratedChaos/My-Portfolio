@@ -490,8 +490,7 @@ HOBBY INTERACTIONS
 .banner-track {
     display: inline-block;
     white-space: nowrap;
-
-    animation: scrollBanner 8s linear infinite;
+    animation: scrollBanner 10s linear infinite;
 }
 
 /* KEYFRAMES */
