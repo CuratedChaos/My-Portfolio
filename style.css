@@ -469,39 +469,23 @@ HOBBY INTERACTIONS
 /* SECRET BANNER */
 .secret-banner {
     position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-12deg);
-
+    top: 40%;
+    left: -50%;
     width: 200%;
-    overflow: hidden;
+    transform: rotate(-12deg);
 
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.9);
     color: black;
     font-weight: 700;
     letter-spacing: 3px;
-    padding: 12px 0;
+    padding: 10px 0;
 
-    z-index: 3;
-}
-
-/* TRACK */
-.banner-track {
-    display: inline-block;
+    text-align: center;
     white-space: nowrap;
 
-    animation: scrollBanner 8s linear infinite;
+    animation: slideBanner 6s linear infinite;
 }
 
-/* KEYFRAMES */
-@keyframes scrollBanner {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
 /* ANIMATION */
 @keyframes slideBanner {
     from {
@@ -516,19 +500,4 @@ HOBBY INTERACTIONS
 }
 .secret-card:hover .secret-banner {
     animation-play-state: paused;
-}
-.banner-track {
-    display: flex;
-    white-space: nowrap;
-    animation: scrollBanner 8s linear infinite;
-}
-
-/* SEAMLESS LOOP */
-@keyframes scrollBanner {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
 }
