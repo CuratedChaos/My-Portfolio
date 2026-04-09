@@ -469,23 +469,38 @@ HOBBY INTERACTIONS
 /* SECRET BANNER */
 .secret-banner {
     position: absolute;
-    top: 40%;
-    left: 0;
-    width: 300%; /* wider strip */
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
 
-    transform: rotate(-12deg);
+    width: 200%;
+    overflow: hidden;
 
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255,255,255,0.95);
     color: black;
     font-weight: 700;
     letter-spacing: 3px;
     padding: 12px 0;
 
-    display: flex;
-    gap: 50px;
-
     z-index: 3;
-    overflow: hidden;
+}
+
+/* TRACK */
+.banner-track {
+    display: inline-block;
+    white-space: nowrap;
+
+    animation: scrollBanner 8s linear infinite;
+}
+
+/* KEYFRAMES */
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 /* ANIMATION */
 @keyframes slideBanner {
