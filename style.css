@@ -747,3 +747,65 @@ HERO SPLIT (NEW)
 .preview-card:hover .preview-logo {
     opacity: 0;
 }
+/* CARD */
+.preview-card {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    display: block;
+    transition: 0.4s;
+}
+
+/* IMAGE */
+.preview-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+/* LOGO LAYER */
+.preview-logo {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    z-index: 2;
+
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+}
+
+/* LOGO IMAGE */
+.preview-logo img {
+    width: 55px;
+    filter: invert(1);
+}
+
+/* HOVER EFFECT */
+.preview-card:hover .preview-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.preview-card:hover .preview-logo {
+    opacity: 0;
+}
+
+/* EXTRA POLISH */
+.preview-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 50px rgba(0,242,255,0.3);
+}
