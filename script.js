@@ -304,7 +304,10 @@ document.querySelectorAll(".hobby-card").forEach(card => {
             const rope = document.createElement("div");
             rope.className = "rope";
 
-            rope.style.left = (30 + i * 20) + "%";
+            const spacing = 40; // distance between ropes
+            const total = cfg.items.length;
+            const offset = (i - (total - 1) / 2) * spacing;
+            rope.style.left = `calc(50% + ${offset}px)`;
 
             const hang = document.createElement("div");
             hang.className = "hang-item";
