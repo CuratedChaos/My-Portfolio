@@ -484,6 +484,7 @@ HOBBY INTERACTIONS
 
     z-index: 3;
     white-space: nowrap;
+    backdrop-filter: blur(6px);
 }
 
 /* TRACK */
