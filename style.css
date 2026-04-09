@@ -521,3 +521,55 @@ HOBBY INTERACTIONS
         transform: translateX(-50%);
     }
 }
+/* =========================
+HERO SPLIT (NEW)
+========================= */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.hero-split {
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+/* LEFT */
+.hero-left {
+    flex: 1;
+}
+
+.hero-name {
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: white;
+    line-height: 1;
+}
+
+.hero-tags {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--accent-purple);
+    line-height: 1.8;
+}
+
+/* RIGHT */
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-about {
+    max-width: 500px;
+    color: var(--text-sub);
+    line-height: 1.8;
+    text-align: right;
+}
