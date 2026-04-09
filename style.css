@@ -237,19 +237,19 @@ SOCIAL PREVIEW (NEW)
     position: relative;
     border-radius: 25px;
     overflow: hidden;
-    height: 260px;
     display: block;
-    transition: 0.4s;
+
+    aspect-ratio: 16 / 9;
+
+    transition: transform 0.4s, box-shadow 0.4s;
 }
 
 /* IMAGE */
 .preview-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: 0.85;
-    transition: 0.4s;
-    filter: blur(1px);
+    object-fit: cover; /* keeps it clean */
+}
 }
 
 /* OVERLAY */
@@ -676,4 +676,27 @@ HERO SPLIT (NEW)
 /* make GitHub white */
 .github img {
     filter: invert(1);
+}
+/* PARTICLE GLOW LAYER */
+.preview-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+        rgba(0,242,255,0.25), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 3;
+}
+
+/* ACTIVATE ON HOVER */
+.preview-card:hover::after {
+    opacity: 1;
+}
+.preview-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px rgba(0,242,255,0.3);
+}
+.preview-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
 }
