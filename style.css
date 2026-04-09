@@ -399,11 +399,11 @@ HOBBY INTERACTIONS
 /* HANGING ITEM */
 .hang-item {
     position: absolute;
-    top: 60px;
-    left: -12px;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 28px;
 }
-
 /* ACTIVE */
 .hobby-card.active .pop-object {
     transform: translateX(-50%) scale(1);
