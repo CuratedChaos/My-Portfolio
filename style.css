@@ -627,3 +627,8 @@ HERO SPLIT (NEW)
 .social-card.large:nth-child(2):hover {
     box-shadow: 0 0 40px rgba(0,119,181,0.4);
 }
+
+/* Only github logo fiz */
+.github img {
+    filter: invert(1) brightness(2);
+}
