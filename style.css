@@ -19,6 +19,8 @@ body {
     background: var(--bg);
     color: var(--text-main);
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 /* BACKGROUND */
@@ -56,7 +58,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 15px 40px;
     border-radius: 50px;
     backdrop-filter: blur(20px);
     background: rgba(255,255,255,0.05);
@@ -112,21 +114,18 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 60px;
+    min-height: 100vh; /* IMPORTANT */
 }
-
 /* LEFT SIDE */
 .hero-left {
-    flex: 3;
-    text-align: left;
+    flex: 1;
+    max-width: 600px;
 }
 
 /* NAME */
 .name-white {
-    color: white;
-    font-size: clamp(3rem, 7vw, 6rem);
-    margin-bottom: 20px;
+    line-height: 1;
 }
-
 /* TAGS */
 .hero-tags {
     color: var(--text-sub);
@@ -137,6 +136,8 @@ body {
 /* RIGHT SIDE */
 .hero-right {
     flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 /* ABOUT TEXT */
@@ -199,7 +200,9 @@ body {
 
 /* SECTIONS */
 .container {
-    padding: 100px 10%;
+    padding: 100px 5%;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .section-header {
