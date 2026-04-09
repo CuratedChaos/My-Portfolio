@@ -469,20 +469,21 @@ HOBBY INTERACTIONS
 /* SECRET BANNER */
 .secret-banner {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-12deg);
 
-    width: 200%;
+    width: 150%; /* reduced from 200% */
     overflow: hidden;
 
     background: rgba(255,255,255,0.95);
     color: black;
     font-weight: 700;
     letter-spacing: 3px;
-    padding: 12px 0;
+    padding: 10px 0;
 
     z-index: 3;
+    white-space: nowrap;
 }
 
 /* TRACK */
@@ -506,7 +507,7 @@ HOBBY INTERACTIONS
 @keyframes slideBanner {
     from {
         left: -50%;
-    }
+    }    
     to {
         left: 0%;
     }
