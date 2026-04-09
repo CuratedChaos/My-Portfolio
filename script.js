@@ -351,3 +351,14 @@ const total = cfg.items.length;
 const offset = (i - (total - 1) / 2) * spacing;
 
 rope.style.transform = `translateX(calc(-50% + ${offset}px))`;
+
+document.querySelectorAll(".preview-card").forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        card.style.setProperty('--x', x + '%');
+        card.style.setProperty('--y', y + '%');
+    });
+});
