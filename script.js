@@ -345,3 +345,9 @@ document.querySelectorAll(".hobby-card").forEach(card => {
         cancelAnimationFrame(animationFrame);
     });
 });
+const spacing = 50;
+const total = cfg.items.length;
+
+const offset = (i - (total - 1) / 2) * spacing;
+
+rope.style.transform = `translateX(calc(-50% + ${offset}px))`;
