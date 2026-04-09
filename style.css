@@ -809,3 +809,8 @@ HERO SPLIT (NEW)
     transform: scale(1.03);
     box-shadow: 0 0 50px rgba(0,242,255,0.3);
 }
+.preview-logo img {
+    width: 60px;
+    filter: invert(1);
+    opacity: 1;
+}
