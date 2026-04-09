@@ -221,39 +221,78 @@ body {
     transform: translateY(-15px) scale(1.02);
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
+/*=========================
+SOCIAL PREVIEW (NEW)
+========================= */
 
-/* SOCIALS */
-.social-grid {
-    display: flex;
-    justify-content: center;
+.social-preview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
-.social-card {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.03);
+/* CARD */
+.preview-card {
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 260px;
+    display: block;
+    transition: 0.4s;
+}
+
+/* IMAGE */
+.preview-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    transition: 0.4s;
+    filter: blur(1px);
+}
+
+/* OVERLAY */
+.preview-overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
+    justify-content: flex-end;
+    padding: 20px;
+    z-index: 2;
+
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-.social-card img {
-    width: 45px;
-    margin-bottom: 10px;
+/* TEXT */
+.preview-overlay h3 {
+    font-size: 1.5rem;
 }
 
-.social-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px rgba(0,242,255,0.4);
+.preview-overlay p {
+    color: var(--text-sub);
 }
 
+/* GLOW BACKGROUND */
+.preview-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(0,242,255,0.1), transparent);
+    z-index: 1;
+}
+
+/* HOVER EFFECT */
+.preview-card:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: blur(0);
+}
+
+.preview-card:hover {
+    box-shadow: 0 0 40px rgba(0,242,255,0.3);
+}
 /* CAREER */
 .career-layout {
     display: flex;
