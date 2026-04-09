@@ -588,3 +588,42 @@ HERO SPLIT (NEW)
     transform: translateY(-50%);
     filter: blur(60px);
 }
+/* BIG SOCIAL CARDS */
+.social-card.large {
+    width: 280px;
+    height: 180px;
+    padding: 25px;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+
+/* TEXT */
+.social-card.large h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.social-card.large p {
+    color: var(--text-sub);
+    margin-bottom: 10px;
+}
+
+.social-meta {
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    opacity: 0.8;
+}
+
+/* HOVER UPGRADE */
+.social-card.large:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 0 30px rgba(0,242,255,0.3);
+}
+.social-card.large:nth-child(1):hover {
+    box-shadow: 0 0 40px rgba(255,255,255,0.2);
+}
+
+.social-card.large:nth-child(2):hover {
+    box-shadow: 0 0 40px rgba(0,119,181,0.4);
+}
