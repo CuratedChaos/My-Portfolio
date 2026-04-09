@@ -423,3 +423,40 @@ HOBBY INTERACTIONS
 .hobby-card.active .pop-object {
     transform: translateX(-50%) scale(1);
 }
+
+.p-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* IMAGE */
+.p-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    opacity: 0.25;
+    transition: 0.5s;
+}
+
+/* DARK OVERLAY */
+.p-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+/* CONTENT ABOVE IMAGE */
+.p-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* HOVER EFFECT */
+.p-card:hover .p-img {
+    transform: scale(1.1);
+    opacity: 0.4;
+}
