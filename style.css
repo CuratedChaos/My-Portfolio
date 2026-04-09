@@ -385,18 +385,33 @@ HOBBY INTERACTIONS
     transition: 0.3s ease;
 }
 
+/* WRAPPER */
+.pop-wrapper {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* POP */
+.pop-object {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+}
+
 /* ROPE */
 .rope {
     position: absolute;
-    width: 2px;
-    height: 60px;
-    background: rgba(255,255,255,0.3);
-    top: -10px;
+    top: 100%;
     left: 50%;
+    width: 2px;
+    height: 70px;
+    background: rgba(255,255,255,0.4);
     transform-origin: top center;
 }
 
-/* HANGING ITEM */
+/* HANG ITEM */
 .hang-item {
     position: absolute;
     top: 70px;
