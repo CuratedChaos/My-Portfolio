@@ -116,7 +116,7 @@ body {
 
 /* LEFT SIDE */
 .hero-left {
-    flex: 1;
+    flex: 3;
     text-align: left;
 }
 
