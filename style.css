@@ -731,12 +731,6 @@ HERO SPLIT (NEW)
     transition: 0.4s;
 }
 
-/* LOGO IMAGE */
-.preview-logo img {
-    width: 50px;
-    filter: invert(1);
-}
-
 /* HOVER → SHOW IMAGE */
 .preview-card:hover .preview-img {
     opacity: 1;
@@ -811,6 +805,8 @@ HERO SPLIT (NEW)
 }
 .preview-logo img {
     width: 60px;
-    filter: invert(1);
-    opacity: 1;
+}
+.preview-logo {
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
 }
