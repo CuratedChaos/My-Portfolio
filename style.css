@@ -517,11 +517,6 @@ HOBBY INTERACTIONS
 .secret-card:hover .secret-banner {
     animation-play-state: paused;
 }
-.banner-track {
-    display: flex;
-    white-space: nowrap;
-    animation: scrollBanner 8s linear infinite;
-}
 
 /* SEAMLESS LOOP */
 @keyframes scrollBanner {
