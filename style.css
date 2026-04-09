@@ -470,22 +470,23 @@ HOBBY INTERACTIONS
 .secret-banner {
     position: absolute;
     top: 40%;
-    left: -50%;
-    width: 200%;
+    left: 0;
+    width: 300%; /* wider strip */
+
     transform: rotate(-12deg);
 
     background: rgba(255, 255, 255, 0.9);
     color: black;
     font-weight: 700;
     letter-spacing: 3px;
-    padding: 10px 0;
+    padding: 12px 0;
 
-    text-align: center;
-    white-space: nowrap;
+    display: flex;
+    gap: 50px;
 
-    animation: slideBanner 6s linear infinite;
+    z-index: 3;
+    overflow: hidden;
 }
-
 /* ANIMATION */
 @keyframes slideBanner {
     from {
@@ -500,4 +501,19 @@ HOBBY INTERACTIONS
 }
 .secret-card:hover .secret-banner {
     animation-play-state: paused;
+}
+.banner-track {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollBanner 8s linear infinite;
+}
+
+/* SEAMLESS LOOP */
+@keyframes scrollBanner {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
