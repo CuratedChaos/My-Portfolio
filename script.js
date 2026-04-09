@@ -351,18 +351,3 @@ const total = cfg.items.length;
 const offset = (i - (total - 1) / 2) * spacing;
 
 rope.style.transform = `translateX(calc(-50% + ${offset}px))`;
-@media (max-width: 768px) {
-    .split {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-left,
-    .hero-right {
-        text-align: center;
-    }
-
-    .hero-about {
-        max-width: 100%;
-    }
-}
