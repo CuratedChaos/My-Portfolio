@@ -493,15 +493,7 @@ HOBBY INTERACTIONS
     animation: scrollBanner 10s linear infinite;
 }
 
-/* KEYFRAMES */
-@keyframes scrollBanner {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
+
 /* ANIMATION */
 @keyframes slideBanner {
     from {
@@ -519,6 +511,7 @@ HOBBY INTERACTIONS
 }
 
 /* SEAMLESS LOOP */
+/* KEYFRAMES */
 @keyframes scrollBanner {
     from {
         transform: translateX(0);
