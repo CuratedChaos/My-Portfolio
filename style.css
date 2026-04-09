@@ -626,8 +626,15 @@ HERO SPLIT (NEW)
 
 .social-card.large:nth-child(2):hover {
     box-shadow: 0 0 40px rgba(0,119,181,0.4);
+
+    
 }
-/* ONLY GITHUB ICON FIX */
-.social-card img[src*="25231"] {
-    filter: invert(1) brightness(2);
+.social-card img {
+    width: 55px; /* bigger icon */
+    margin-bottom: 10px;
+}
+
+/* make GitHub white */
+.github img {
+    filter: invert(1);
 }
