@@ -688,20 +688,6 @@ HERO SPLIT (NEW)
 .preview-card:hover {
     transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
 }
-/* IMAGE (hidden by default) */
-.preview-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    opacity: 0;
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-
 /* LOGO (default state) */
 .preview-logo {
     position: absolute;
@@ -722,12 +708,6 @@ HERO SPLIT (NEW)
 .logo-img {
     width: 90px;
     height: auto;
-}
-
-/* HOVER → SHOW IMAGE */
-.preview-card:hover .preview-img {
-    opacity: 1;
-    transform: scale(1);
 }
 
 /* CARD */
