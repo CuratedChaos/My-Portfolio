@@ -96,28 +96,32 @@ document.addEventListener("DOMContentLoaded", () => {
             video.currentTime = 0;
         });
     });
-
-
     // ==============================
-    // EMAIL FORM → GMAIL
+    // EMAIL FORM → FORMSPREE (NO REDIRECT)
     // ==============================
     const form = document.getElementById("contactForm");
-
+    const statusText = document.getElementById("status");
+    
     if (form) {
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
-
-            const email = document.getElementById("email").value;
-            const subject = document.getElementById("subject").value;
-            const message = document.getElementById("message").value;
-
-            const gmailURL =
-                `https://mail.google.com/mail/?view=cm&fs=1` +
-                `&to=vedant9badgujar@gmail.com` +
-                `&su=${encodeURIComponent(subject)}` +
-                `&body=${encodeURIComponent(message + "\n\nFrom: " + email)}`;
-
-            window.open(gmailURL, "_blank");
+    
+            const data = new FormData(form);
+    
+            const response = await fetch("https://formspree.io/f/mlgoqnwe", {
+                method: "POST",
+                body: data,
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+    
+            if (response.ok) {
+                statusText.innerText = "✔ Message sent!";
+                form.reset();
+            } else {
+                statusText.innerText = "❌ Something went wrong.";
+            }
         });
     }
 
