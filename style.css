@@ -733,56 +733,54 @@ HERO SPLIT (NEW)
    JOURNEY MAP
 ======================*/
 
-/* =======================
-   ACADEMIC JOURNEY
-======================= */
+/* ===============================
+   ACADEMIC JOURNEY SECTION
+================================ */
 
 .journey {
     position: relative;
     margin-top: 80px;
-    padding-left: 40px;
+    padding-left: 30px;
 }
 
 /* Vertical line */
 .journey::before {
-    content: '';
+    content: "";
     position: absolute;
-    left: 10px;
+    left: 8px;
     top: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        #00f2ff,
-        transparent
-    );
+    background: linear-gradient(to bottom, var(--accent-blue), transparent);
 }
 
-/* Each step */
+/* Layout */
 .journey-item {
     display: grid;
     grid-template-columns: 30px 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 60px;
     align-items: center;
+    gap: 40px;
+    margin-bottom: 70px;
 }
 
 /* Dot */
 .journey-dot {
     width: 14px;
     height: 14px;
+    background: var(--accent-blue);
     border-radius: 50%;
-    background: #00f2ff;
-    box-shadow: 0 0 15px #00f2ff;
+    box-shadow: 0 0 12px var(--accent-blue);
 }
 
 /* Text */
 .journey-text h3 {
     font-size: 1.4rem;
+    color: var(--text-main);
 }
 
 .journey-text p {
     color: var(--text-sub);
+    margin-top: 6px;
 }
 
 .journey-text span {
@@ -790,55 +788,31 @@ HERO SPLIT (NEW)
     font-weight: 600;
 }
 
-/* Visual */
+/* Image box */
+.journey-visual {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .journey-visual img {
     width: 100%;
     max-width: 260px;
-    border-radius: 20px;
-    opacity: 0.85;
-    transition: 0.4s;
+    border-radius: 18px;
+    opacity: 0.9;
+    transition: 0.4s ease;
 }
 
 .journey-item:hover img {
     transform: scale(1.05);
     opacity: 1;
 }
-/* ======================
-   EDUCATION PATH
-====================== */
 
-.edu-path {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.edu-step {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.edu-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--accent-blue);
-    box-shadow: 0 0 12px var(--accent-blue);
-}
-
-.edu-label {
-    font-size: 0.95rem;
-    color: var(--text-sub);
-}
-
-.edu-line {
-    width: 2px;
-    height: 28px;
-    background: linear-gradient(
-        to bottom,
-        var(--accent-blue),
-        transparent
-    );
+/* Mobile */
+@media (max-width: 768px) {
+    .journey-item {
+        grid-template-columns: 20px 1fr;
+    }
+    .journey-visual {
+        display: none;
+    }
 }
