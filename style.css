@@ -731,73 +731,75 @@ HERO SPLIT (NEW)
 
 /* ======================
    JOURNEY MAP
-====================== 
+======================*/
 
-.journey-chart {
+/* =======================
+   ACADEMIC JOURNEY
+======================= */
+
+.journey {
     position: relative;
-    height: 300px;
-    margin-top: 60px;
+    margin-top: 80px;
+    padding-left: 40px;
 }
 
-.journey-chart svg {
-    width: 100%;
-    height: 100%;
-}
-
-.chart-line {
-    fill: none;
-    stroke: #00f2ff;
-    stroke-width: 4;
-    opacity: 0.8;
-}
-
-/* Dots */
-.dot {
+/* Vertical line */
+.journey::before {
+    content: '';
     position: absolute;
-    transform: translate(-50%, -50%);
+    left: 10px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        #00f2ff,
+        transparent
+    );
 }
 
-.dot span {
+/* Each step */
+.journey-item {
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+/* Dot */
+.journey-dot {
     width: 14px;
     height: 14px;
-    background: white;
     border-radius: 50%;
-    display: block;
-    box-shadow: 0 0 12px #00f2ff;
+    background: #00f2ff;
+    box-shadow: 0 0 15px #00f2ff;
 }
 
-/* Example positions */
-.d1 { left: 10%; top: 65%; }
-.d2 { left: 35%; top: 35%; }
-.d3 { left: 60%; top: 55%; }
-.d4 { left: 90%; top: 40%; }
-
-/* Info card */
-.info {
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.7);
-    padding: 10px;
-    border-radius: 10px;
-    opacity: 0;
-    transition: .3s;
-    pointer-events: none;
+/* Text */
+.journey-text h3 {
+    font-size: 1.4rem;
 }
 
-.dot:hover .info {
+.journey-text p {
+    color: var(--text-sub);
+}
+
+.journey-text span {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+/* Visual */
+.journey-visual img {
+    width: 100%;
+    max-width: 260px;
+    border-radius: 20px;
+    opacity: 0.85;
+    transition: 0.4s;
+}
+
+.journey-item:hover img {
+    transform: scale(1.05);
     opacity: 1;
 }
-.chart-line {
-    fill: none;
-    stroke: white;
-    stroke-width: 4;
-    opacity: 0.9;
-}
-
-.pin {
-    fill: white;
-    filter: drop-shadow(0 0 6px white);
-    cursor: pointer;
-}*/
