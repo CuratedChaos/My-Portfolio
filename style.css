@@ -852,7 +852,7 @@ HERO SPLIT (NEW)
     line-height: 1.3;
 }
 /* remove underline from project cards */
-.p-card h3,
-.p-card span {
-    text-decoration: none;
+.p-card,
+.p-card * {
+    text-decoration: none !important;
 }
