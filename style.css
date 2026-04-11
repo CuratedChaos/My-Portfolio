@@ -729,90 +729,95 @@ HERO SPLIT (NEW)
     box-shadow: 0 0 55px rgba(0,242,255,0.35);
 }
 
-/* ======================
-   JOURNEY MAP
-======================*/
+/* =========================
+   ACADEMIC ROADMAP
+========================= */
 
-/* ===============================
-   ACADEMIC JOURNEY SECTION
-================================ */
-
-.journey {
-    position: relative;
+.academic-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
     margin-top: 80px;
-    padding-left: 30px;
 }
 
-/* Vertical line */
-.journey::before {
-    content: "";
+/* LEFT */
+.academic-left .acad-item {
+    margin-bottom: 40px;
+}
+
+.acad-item h3 {
+    font-size: 1.4rem;
+}
+
+.acad-item p {
+    color: var(--text-sub);
+}
+
+.acad-item span {
+    color: var(--accent-blue);
+}
+
+/* ROADMAP */
+.roadmap {
+    position: relative;
+    padding-left: 40px;
+}
+
+.road-path {
     position: absolute;
-    left: 8px;
+    left: 18px;
     top: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--accent-blue), transparent);
+    background: repeating-linear-gradient(
+        to bottom,
+        white 0,
+        white 6px,
+        transparent 6px,
+        transparent 12px
+    );
+    opacity: 0.5;
 }
 
-/* Layout */
-.journey-item {
-    display: grid;
-    grid-template-columns: 30px 1fr 1fr;
-    align-items: center;
-    gap: 40px;
-    margin-bottom: 70px;
+.road-stop {
+    position: relative;
+    margin-bottom: 40px;
+    cursor: pointer;
 }
 
-/* Dot */
-.journey-dot {
+.pin {
+    position: absolute;
+    left: -30px;
+    top: 6px;
     width: 14px;
     height: 14px;
-    background: var(--accent-blue);
+    background: white;
     border-radius: 50%;
-    box-shadow: 0 0 12px var(--accent-blue);
+    box-shadow: 0 0 12px white;
 }
 
-/* Text */
-.journey-text h3 {
-    font-size: 1.4rem;
-    color: var(--text-main);
-}
-
-.journey-text p {
+.road-stop p {
     color: var(--text-sub);
-    margin-top: 6px;
+    transition: 0.3s;
 }
 
-.journey-text span {
-    color: var(--accent-blue);
-    font-weight: 600;
+.road-stop:hover p {
+    color: white;
 }
 
-/* Image box */
-.journey-visual {
-    display: flex;
-    justify-content: flex-end;
+/* IMAGE PREVIEW */
+.road-preview {
+    margin-top: 20px;
+    width: 260px;
+    height: 160px;
+    border-radius: 16px;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.4s;
 }
 
-.journey-visual img {
+.road-preview img {
     width: 100%;
-    max-width: 260px;
-    border-radius: 18px;
-    opacity: 0.9;
-    transition: 0.4s ease;
-}
-
-.journey-item:hover img {
-    transform: scale(1.05);
-    opacity: 1;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .journey-item {
-        grid-template-columns: 20px 1fr;
-    }
-    .journey-visual {
-        display: none;
-    }
+    height: 100%;
+    object-fit: cover;
 }
