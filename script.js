@@ -371,3 +371,12 @@ document.querySelectorAll(".preview-card").forEach(card => {
         card.style.setProperty('--y', y + '%');
     });
 });
+document.querySelectorAll(".road-stop").forEach(stop => {
+    stop.addEventListener("mouseenter", () => {
+        const preview = document.querySelector(".road-preview");
+        const img = preview.querySelector("img");
+
+        img.src = stop.dataset.img;
+        preview.style.opacity = "1";
+    });
+});
