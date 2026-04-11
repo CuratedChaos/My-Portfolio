@@ -691,39 +691,34 @@ HERO SPLIT (NEW)
     justify-content: center;
     gap: 14px;
 
-    /* glass effect */
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(14px);
+    /* very light translucent glass */
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
     border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.08);
 
-    border: 1px solid rgba(255, 255, 255, 0.12);
     transition: 0.35s ease;
-
-    /* subtle depth */
-    box-shadow:
-        inset 0 0 0.5px rgba(255,255,255,0.4),
-        0 10px 30px rgba(0,0,0,0.35);
 }
 
 /* Text */
 .preview-logo h3 {
     color: var(--accent-blue);
     font-weight: 600;
-    letter-spacing: 0.5px;
 }
+
 /* Icon */
 .preview-logo img {
-    width: 64px;
+    width: 60px;
     opacity: 0.95;
 }
 
-/* Hover effect – not glow, just lift */
+/* Hover – very subtle lift, no heavy glow */
 .preview-card:hover .preview-logo {
-    transform: translateY(-6px) scale(1.02);
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(0,242,255,0.25);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-4px);
 }
-
 .logo-img {
     width: 90px;
     height: auto;
