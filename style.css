@@ -228,21 +228,19 @@ SOCIAL PREVIEW (NEW)
 .social-preview {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;              /* more space */
+    gap: 60px;
     margin-top: 80px;
 }
 
 /* CARD */
 .preview-card {
     position: relative;
-    border-radius: 30px;
+    height: 320px;
+    border-radius: 28px;
     overflow: hidden;
-    width: 100%;
-    max-width: 550px;     /* 🔥 limits width */
-    height: 300px;        /* 🔥 FIXED HEIGHT */
-    background: rgba(255,255,255,0.05);
-    transition: 0.4s;
-}
+    background: #0a0f14;
+    transition: transform 0.4s, box-shadow 0.4s;
+}    
 /* IMAGE */
 
 /* OVERLAY */
@@ -711,15 +709,22 @@ HERO SPLIT (NEW)
 .preview-logo {
     position: absolute;
     inset: 0;
+    z-index: 2;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 14px;
 
     background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(12px);
-    transition: 0.4s;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease;
+}
+
+.logo-img {
+    width: 90px;
+    height: auto;
 }
 
 /* HOVER → SHOW IMAGE */
@@ -728,10 +733,6 @@ HERO SPLIT (NEW)
     transform: scale(1);
 }
 
-/* HOVER → FADE LOGO */
-.preview-card:hover .preview-logo {
-    opacity: 0;
-}
 /* CARD */
 .preview-card {
     position: relative;
@@ -783,15 +784,6 @@ HERO SPLIT (NEW)
     transform: scale(1);
 }
 
-.preview-card:hover .preview-logo {
-    opacity: 0;
-}
-
-/* EXTRA POLISH */
-.preview-card:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 60px rgba(0,242,255,0.35);
-}
 .preview-logo img {
     width: 60px;
 }
@@ -799,17 +791,27 @@ HERO SPLIT (NEW)
     width: 90px;           /* bigger */
     filter: invert(1);     /* white */
 }
-}
+
 .preview-media {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* 🔥 prevents stretching */
+    object-fit: cover;
     opacity: 0;
-    transition: 0.5s;
+    transform: scale(1.08);
+    transition: opacity 0.4s ease, transform 0.6s ease;
 }
+.preview-card:hover .preview-media {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.preview-card:hover .preview-logo {
+    opacity: 0;
+}
+
 .preview-card:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 60px rgba(0,242,255,0.35);
+    transform: scale(1.03);
+    box-shadow: 0 0 55px rgba(0,242,255,0.35);
 }
