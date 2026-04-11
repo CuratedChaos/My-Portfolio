@@ -228,8 +228,8 @@ SOCIAL PREVIEW (NEW)
 .social-preview {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    margin-top: 60px;
+    gap: 80px;              /* more space */
+    margin-top: 80px;
 }
 
 /* CARD */
@@ -237,13 +237,9 @@ SOCIAL PREVIEW (NEW)
     position: relative;
     border-radius: 30px;
     overflow: hidden;
-    display: block;
-
     aspect-ratio: 16 / 9;
-    min-height: 320px;   /* 👈 THIS IS IMPORTANT */
-
-    background: rgba(255,255,255,0.04);
-    transition: transform 0.4s, box-shadow 0.4s;
+    background: rgba(255,255,255,0.05);
+    transition: 0.4s;
 }
 
 /* IMAGE */
@@ -714,15 +710,15 @@ HERO SPLIT (NEW)
 .preview-logo {
     position: absolute;
     inset: 0;
-
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
     gap: 15px;
-    background: rgba(0,0,0,0.65);
+
+    background: rgba(0,0,0,0.7);
     backdrop-filter: blur(12px);
+    transition: 0.4s;
 }
 
 /* HOVER → SHOW IMAGE */
@@ -794,13 +790,28 @@ HERO SPLIT (NEW)
 /* EXTRA POLISH */
 .preview-card:hover {
     transform: scale(1.04);
-    box-shadow: 0 0 60px rgba(0,242,255,0.4);
+    box-shadow: 0 0 60px rgba(0,242,255,0.35);
 }
 .preview-logo img {
     width: 60px;
 }
 .logo-img {
-    width: 80px;
-    height: auto;
-    object-fit: contain;
+    width: 90px;           /* bigger */
+    filter: invert(1);     /* white */
+}
+}
+.preview-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+.preview-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 60px rgba(0,242,255,0.35);
 }
