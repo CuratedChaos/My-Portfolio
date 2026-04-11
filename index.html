@@ -200,14 +200,21 @@
 <div class="journey-chart">
 
     <svg viewBox="0 0 1000 300" preserveAspectRatio="none">
-        <path 
+
+        <!-- Curve -->
+        <path id="road"
             d="M50 200 C200 50, 350 250, 500 150 S800 50, 950 200"
-            class="chart-line"
-        />
+            class="chart-line"/>
+
+        <!-- Dots directly on the path -->
+        <circle class="pin" cx="50" cy="200" r="7"/>
+        <circle class="pin" cx="260" cy="130" r="7"/>
+        <circle class="pin" cx="520" cy="150" r="7"/>
+        <circle class="pin" cx="900" cy="160" r="7"/>
+
     </svg>
 
-    <div class="dot d1">
-        <span></span>
+</div>
         <div class="info">
             <h4>Podar International</h4>
             <p>Class 1-5</p>
