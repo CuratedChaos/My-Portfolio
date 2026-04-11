@@ -361,9 +361,12 @@ document.querySelectorAll(".preview-card").forEach(card => {
         card.style.setProperty('--x', x + '%');
         card.style.setProperty('--y', y + '%');
     });
-});
-document.querySelectorAll(".preview-card video").forEach(v => {
-  const card = v.closest(".preview-card");
-  card.addEventListener("mouseenter", () => v.play());
-  card.addEventListener("mouseleave", () => { v.pause(); v.currentTime = 0; });
+document.querySelectorAll(".preview-card video").forEach(video => {
+    const card = video.closest(".preview-card");
+
+    card.addEventListener("mouseenter", () => video.play());
+    card.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+    });
 });
