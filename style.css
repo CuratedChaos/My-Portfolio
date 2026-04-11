@@ -763,10 +763,9 @@ HERO SPLIT (NEW)
     width: 60px;
 }
 .logo-img {
-    width: 90px;           /* bigger */
-    filter: invert(1);     /* white */
+    width: 90px;
+    height: auto;
 }
-
 .preview-media {
     position: absolute;
     inset: 0;
