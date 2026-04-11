@@ -664,10 +664,6 @@ HERO SPLIT (NEW)
     margin-bottom: 10px;
 }
 
-/* make GitHub white */
-.github img {
-    filter: invert(1);
-}
 /* PARTICLE GLOW LAYER */
 .preview-card::after {
     content: '';
@@ -678,6 +674,7 @@ HERO SPLIT (NEW)
     opacity: 0;
     transition: opacity 0.3s;
     z-index: 3;
+    pointer-events: none;
 }
 
 /* ACTIVATE ON HOVER */
@@ -775,8 +772,6 @@ HERO SPLIT (NEW)
 /* LOGO IMAGE */
 .preview-logo img {
     width: 90px;   /* 👈 make it actually visible */
-    filter: invert(1); /* makes it white */
-}
 
 /* HOVER EFFECT */
 .preview-card:hover .preview-img {
