@@ -362,3 +362,8 @@ document.querySelectorAll(".preview-card").forEach(card => {
         card.style.setProperty('--y', y + '%');
     });
 });
+document.querySelectorAll(".preview-card video").forEach(v => {
+  const card = v.closest(".preview-card");
+  card.addEventListener("mouseenter", () => v.play());
+  card.addEventListener("mouseleave", () => { v.pause(); v.currentTime = 0; });
+});
