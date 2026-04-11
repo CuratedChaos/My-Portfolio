@@ -232,17 +232,6 @@ SOCIAL PREVIEW (NEW)
     margin-top: 80px;
 }
 
-/* CARD */
-.preview-card {
-    position: relative;
-    height: 320px;
-    border-radius: 28px;
-    overflow: hidden;
-    background: #0a0f14;
-    transition: transform 0.4s, box-shadow 0.4s;
-}    
-/* IMAGE */
-
 /* OVERLAY */
 .preview-overlay {
     position: absolute;
@@ -681,26 +670,6 @@ HERO SPLIT (NEW)
 .preview-card:hover {
     transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) scale(1.02);
 }
-/* LOGO (default state) */
-.preview-logo {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-}
-
-.logo-img {
-    width: 90px;
-}
 
 /* CARD */
 .preview-card {
@@ -733,11 +702,6 @@ HERO SPLIT (NEW)
     width: 90px;   /* 👈 make it actually visible */
 }
 
-/* HOVER EFFECT */
-.preview-card:hover .preview-img {
-    opacity: 1;
-    transform: scale(1);
-}
 .logo-img {
     width: 90px;
     height: auto;
