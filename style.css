@@ -830,3 +830,24 @@ HERO SPLIT (NEW)
     filter: blur(0);
     transform: scale(1);
 }
+/* ===== PROJECT TILE TEXT ===== */
+
+.p-content {
+    position: relative;
+    z-index: 2;
+}
+
+.p-content span {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--text-sub);   /* grey */
+    margin-bottom: 6px;
+}
+
+.p-content h3 {
+    font-size: 1.4rem;
+    color: white;             /* title white */
+    font-weight: 600;
+    line-height: 1.3;
+}
