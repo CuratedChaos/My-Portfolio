@@ -730,3 +730,80 @@ HERO SPLIT (NEW)
     transform: scale(1.03);
     box-shadow: 0 0 55px rgba(0,242,255,0.35);
 }
+
+/* ======================
+   JOURNEY MAP
+====================== */
+
+.journey-map {
+    position: relative;
+    height: 350px;
+    margin-top: 80px;
+}
+
+/* Path Line */
+.path {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 4px;
+    background: linear-gradient(90deg,#00f2ff,#7000ff);
+    transform: translateY(-50%);
+    border-radius: 10px;
+}
+
+/* Pins */
+.pin {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+/* Positioning of Pins */
+.p1 { left: 10%; }
+.p2 { left: 35%; }
+.p3 { left: 60%; }
+.p4 { left: 85%; }
+
+/* Dot */
+.pin span {
+    width: 16px;
+    height: 16px;
+    background: #00f2ff;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    box-shadow: 0 0 10px #00f2ff;
+    cursor: pointer;
+}
+
+/* Info Card */
+.info {
+    position: absolute;
+    top: -140px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    padding: 10px;
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(0,242,255,0.3);
+    border-radius: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Image */
+.info img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+/* Hover reveal */
+.pin:hover .info {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
