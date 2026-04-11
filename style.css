@@ -731,6 +731,7 @@ HERO SPLIT (NEW)
 /* LOGO IMAGE */
 .preview-logo img {
     width: 90px;   /* 👈 make it actually visible */
+}
 
 /* HOVER EFFECT */
 .preview-card:hover .preview-img {
