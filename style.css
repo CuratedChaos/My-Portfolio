@@ -791,3 +791,15 @@ HERO SPLIT (NEW)
 .dot:hover .info {
     opacity: 1;
 }
+.chart-line {
+    fill: none;
+    stroke: white;
+    stroke-width: 4;
+    opacity: 0.9;
+}
+
+.pin {
+    fill: white;
+    filter: drop-shadow(0 0 6px white);
+    cursor: pointer;
+}
