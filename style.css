@@ -851,3 +851,8 @@ HERO SPLIT (NEW)
     font-weight: 600;
     line-height: 1.3;
 }
+/* remove underline from project cards */
+.p-card h3,
+.p-card span {
+    text-decoration: none;
+}
