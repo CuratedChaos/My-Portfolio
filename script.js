@@ -81,6 +81,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // ==============================
+    // VIDEO PLAY ON HOVER (Moved inside DOMContentLoaded)
+    // ==============================
+    document.querySelectorAll(".preview-card video").forEach(video => {
+        const card = video.closest(".preview-card");
+
+        card.addEventListener("mouseenter", () => {
+            video.play();
+        });
+
+        card.addEventListener("mouseleave", () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
+
 
     // ==============================
     // EMAIL FORM → GMAIL
@@ -252,12 +268,9 @@ window.addEventListener("resize", () => {
     canvas.height = window.innerHeight;
     initParticles();
 });
-// ==============================
-// HOBBY INTERACTIVE SCENES
-// ==============================
 
 // ==============================
-// HANGING PHYSICS SYSTEM
+// HOBBY INTERACTIVE SCENES
 // ==============================
 
 const configs = {
@@ -299,13 +312,13 @@ document.querySelectorAll(".hobby-card").forEach(card => {
 
         // CREATE HANGING ITEMS
         const ropes = [];
+        const spacing = 50;
+        const total = cfg.items.length;
 
         cfg.items.forEach((item, i) => {
             const rope = document.createElement("div");
             rope.className = "rope";
 
-            const spacing = 40; // distance between ropes
-            const total = cfg.items.length;
             const offset = (i - (total - 1) / 2) * spacing;
             rope.style.left = `calc(50% + ${offset}px)`;
 
@@ -323,19 +336,16 @@ document.querySelectorAll(".hobby-card").forEach(card => {
             });
         });
 
-        // SWING LOOP (pendulum fake physics)
+        // SWING LOOP
         function animate() {
             ropes.forEach(r => {
-                r.velocity += -0.002 * r.angle; // gravity
-                r.velocity *= 0.98; // damping
+                r.velocity += -0.002 * r.angle;
+                r.velocity *= 0.98;
                 r.angle += r.velocity;
-
                 r.el.style.transform = `rotate(${r.angle}rad)`;
             });
-
             animationFrame = requestAnimationFrame(animate);
         }
-
         animate();
     });
 
@@ -345,13 +355,12 @@ document.querySelectorAll(".hobby-card").forEach(card => {
         cancelAnimationFrame(animationFrame);
     });
 });
-const spacing = 50;
-const total = cfg.items.length;
 
-const offset = (i - (total - 1) / 2) * spacing;
+// ==============================
+// SOCIAL PREVIEW INTERACTIONS
+// ==============================
 
-rope.style.transform = `translateX(calc(-50% + ${offset}px))`;
-
+// Cursor glow
 document.querySelectorAll(".preview-card").forEach(card => {
     card.addEventListener("mousemove", (e) => {
         const rect = card.getBoundingClientRect();
@@ -360,13 +369,5 @@ document.querySelectorAll(".preview-card").forEach(card => {
 
         card.style.setProperty('--x', x + '%');
         card.style.setProperty('--y', y + '%');
-    });
-document.querySelectorAll(".preview-card video").forEach(video => {
-    const card = video.closest(".preview-card");
-
-    card.addEventListener("mouseenter", () => video.play());
-    card.addEventListener("mouseleave", () => {
-        video.pause();
-        video.currentTime = 0;
     });
 });
