@@ -880,3 +880,28 @@ HERO SPLIT (NEW)
 .p-card * {
     text-decoration: none !important;
 }
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: white;
+}
+
+.contact-form button {
+    padding: 15px;
+    border-radius: 10px;
+    background: #00f2ff;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
