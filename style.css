@@ -905,3 +905,37 @@ HERO SPLIT (NEW)
     font-weight: bold;
     cursor: pointer;
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("contactForm");
+    const statusText = document.getElementById("status");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        statusText.textContent = "Sending...";
+
+        try {
+            const data = new FormData(form);
+
+            const res = await fetch("https://formspree.io/f/mlgoqnwe", {
+                method: "POST",
+                body: data,
+                headers: { "Accept": "application/json" }
+            });
+
+            if (res.ok) {
+                statusText.textContent = "✔ Message sent!";
+                form.reset();
+            } else {
+                statusText.textContent = "❌ Failed to send.";
+            }
+
+        } catch (err) {
+            statusText.textContent = "⚠ Network error.";
+        }
+    });
+
+});
