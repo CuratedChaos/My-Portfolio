@@ -689,14 +689,12 @@ HERO SPLIT (NEW)
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 14px;
 
-    gap: 15px;
-    z-index: 2;
-
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.35);   /* 👈 lighter */
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
 }
-
 /* LOGO IMAGE */
 .preview-logo img {
     width: 90px;   /* 👈 make it actually visible */
