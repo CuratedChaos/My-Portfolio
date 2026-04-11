@@ -691,39 +691,37 @@ HERO SPLIT (NEW)
     justify-content: center;
     gap: 14px;
 
-    background: rgba(0,0,0,0.25);   /* lighter glass */
-    backdrop-filter: blur(10px);
+    /* glass effect */
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    border-radius: 22px;
 
+    border: 1px solid rgba(255, 255, 255, 0.12);
     transition: 0.35s ease;
 
-    /* subtle neon aura */
-    box-shadow: inset 0 0 30px rgba(0,242,255,0.15);
-}
-/* TEXT (GitHub / LinkedIn) */
-.preview-logo h3 {
-    color: var(--accent-blue);   /* cyan like 9.35 */
-    font-weight: 600;
-    letter-spacing: 1px;
-
-    /* glow */
-    text-shadow:
-        0 0 6px rgba(0,242,255,0.6),
-        0 0 14px rgba(0,242,255,0.4);
-}
-/* ICON glow */
-.preview-logo img {
-    filter:
-        drop-shadow(0 0 6px rgba(0,242,255,0.6))
-        drop-shadow(0 0 14px rgba(0,242,255,0.4));
-}
-
-/* Hover pop */
-.preview-card:hover .preview-logo {
-    background: rgba(0,0,0,0.45);
+    /* subtle depth */
     box-shadow:
-        0 0 25px rgba(0,242,255,0.35),
-        inset 0 0 35px rgba(0,242,255,0.25);
-    transform: scale(1.02);
+        inset 0 0 0.5px rgba(255,255,255,0.4),
+        0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Text */
+.preview-logo h3 {
+    color: var(--accent-blue);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+/* Icon */
+.preview-logo img {
+    width: 64px;
+    opacity: 0.95;
+}
+
+/* Hover effect – not glow, just lift */
+.preview-card:hover .preview-logo {
+    transform: translateY(-6px) scale(1.02);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(0,242,255,0.25);
 }
 
 .logo-img {
