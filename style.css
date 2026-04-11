@@ -803,3 +803,42 @@ HERO SPLIT (NEW)
     transform: scale(1.05);
     opacity: 1;
 }
+/* ======================
+   EDUCATION PATH
+====================== */
+
+.edu-path {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.edu-step {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.edu-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    box-shadow: 0 0 12px var(--accent-blue);
+}
+
+.edu-label {
+    font-size: 0.95rem;
+    color: var(--text-sub);
+}
+
+.edu-line {
+    width: 2px;
+    height: 28px;
+    background: linear-gradient(
+        to bottom,
+        var(--accent-blue),
+        transparent
+    );
+}
