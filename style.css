@@ -691,13 +691,39 @@ HERO SPLIT (NEW)
     justify-content: center;
     gap: 14px;
 
-    background: rgba(0,0,0,0.35);   /* 👈 lighter */
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
+    background: rgba(0,0,0,0.25);   /* lighter glass */
+    backdrop-filter: blur(10px);
+
+    transition: 0.35s ease;
+
+    /* subtle neon aura */
+    box-shadow: inset 0 0 30px rgba(0,242,255,0.15);
 }
-/* LOGO IMAGE */
+/* TEXT (GitHub / LinkedIn) */
+.preview-logo h3 {
+    color: var(--accent-blue);   /* cyan like 9.35 */
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    /* glow */
+    text-shadow:
+        0 0 6px rgba(0,242,255,0.6),
+        0 0 14px rgba(0,242,255,0.4);
+}
+/* ICON glow */
 .preview-logo img {
-    width: 90px;   /* 👈 make it actually visible */
+    filter:
+        drop-shadow(0 0 6px rgba(0,242,255,0.6))
+        drop-shadow(0 0 14px rgba(0,242,255,0.4));
+}
+
+/* Hover pop */
+.preview-card:hover .preview-logo {
+    background: rgba(0,0,0,0.45);
+    box-shadow:
+        0 0 25px rgba(0,242,255,0.35),
+        inset 0 0 35px rgba(0,242,255,0.25);
+    transform: scale(1.02);
 }
 
 .logo-img {
