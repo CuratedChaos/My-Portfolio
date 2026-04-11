@@ -380,3 +380,12 @@ document.querySelectorAll(".road-stop").forEach(stop => {
         preview.style.opacity = "1";
     });
 });
+document.querySelectorAll(".road-stop").forEach(stop => {
+    stop.addEventListener("mouseenter", () => {
+        const preview = document.querySelector(".road-preview");
+        const img = preview.querySelector("img");
+
+        img.src = stop.dataset.img;
+        preview.classList.add("active");
+    });
+});
