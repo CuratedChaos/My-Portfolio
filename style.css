@@ -677,7 +677,13 @@ HERO SPLIT (NEW)
     height: 320px;
     border-radius: 28px;
     overflow: hidden;
-    background: #0a0f14;
+
+    /* translucent so particles show through */
+    background: rgba(10, 15, 20, 0.18);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(255,255,255,0.06);
     transition: 0.4s;
 }
 /* LOGO LAYER */
