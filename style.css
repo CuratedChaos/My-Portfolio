@@ -691,17 +691,16 @@ HERO SPLIT (NEW)
     justify-content: center;
     gap: 14px;
 
-    /* very light translucent glass */
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    /* real translucent glass */
+    background: rgba(10, 12, 18, 0.25);   /* much more see-through */
+    backdrop-filter: blur(4px);           /* softer blur */
+    -webkit-backdrop-filter: blur(4px);
 
     border-radius: 22px;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.05);
 
     transition: 0.35s ease;
 }
-
 /* Text */
 .preview-logo h3 {
     color: var(--accent-blue);
