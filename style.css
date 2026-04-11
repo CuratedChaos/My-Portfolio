@@ -228,19 +228,21 @@ SOCIAL PREVIEW (NEW)
 .social-preview {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 50px;
+    gap: 60px;
+    margin-top: 60px;
 }
 
 /* CARD */
 .preview-card {
     position: relative;
-    border-radius: 25px;
+    border-radius: 30px;
     overflow: hidden;
     display: block;
 
     aspect-ratio: 16 / 9;
+    min-height: 320px;   /* 👈 THIS IS IMPORTANT */
 
+    background: rgba(255,255,255,0.04);
     transition: transform 0.4s, box-shadow 0.4s;
 }
 
@@ -723,12 +725,9 @@ HERO SPLIT (NEW)
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
-    z-index: 2;
-
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    transition: 0.4s;
+    gap: 15px;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(12px);
 }
 
 /* HOVER → SHOW IMAGE */
@@ -784,8 +783,8 @@ HERO SPLIT (NEW)
 
 /* LOGO IMAGE */
 .preview-logo img {
-    width: 55px;
-    filter: invert(1);
+    width: 90px;   /* 👈 make it actually visible */
+    filter: invert(1); /* makes it white */
 }
 
 /* HOVER EFFECT */
@@ -800,8 +799,8 @@ HERO SPLIT (NEW)
 
 /* EXTRA POLISH */
 .preview-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 50px rgba(0,242,255,0.3);
+    transform: scale(1.04);
+    box-shadow: 0 0 60px rgba(0,242,255,0.4);
 }
 .preview-logo img {
     width: 60px;
