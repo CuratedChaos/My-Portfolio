@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrapSense</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#03040a;
+    color:white;
+    overflow-x:hidden;
+}
+canvas{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+}
+.mesh{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+      radial-gradient(at 0% 0%, rgba(112,0,255,.25), transparent 50%),
+      radial-gradient(at 100% 100%, rgba(0,242,255,.15), transparent 50%);
+}
+nav{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:1200px;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50px;
+    padding:14px 30px;
+}
+.container{
+    padding:140px 10%;
+}
+.glass{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
+    padding:60px;
+    backdrop-filter:blur(18px);
+}
+h1{font-size:3rem;}
+.status span{color:orange;}
+.secret{
+    margin:20px 0;
+    padding:10px;
+    text-align:center;
+    background:white;
+    color:black;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+.back{
+    position:fixed;
+    top:90px;
+    left:40px;
+    color:#00f2ff;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="mesh"></div>
+<canvas id="p"></canvas>
+
+<nav>
+<b>Portfolio</b>
+</nav>
+
+<a class="back" href="../index.html#upcoming">← Back</a>
+
+<div class="container">
+<div class="glass">
+
+<h1>TrapSense</h1>
+
+<div class="status">
+Status: <span>Work in Progress</span>
+</div>
+
+<div class="secret">
+TOP SECRET • CLASSIFIED • RESTRICTED
+</div>
+
+<h2>About</h2>
+<p>
+Information restricted. This system is currently under development
+and involves advanced detection and response mechanisms.
+</p>
+
+<h2>Focus Areas</h2>
+<ul>
+<li>Threat detection systems</li>
+<li>Behavioral analysis</li>
+<li>Security automation</li>
+</ul>
+
+<h2>Status</h2>
+<p>
+Active development. Public details will be revealed once stable.
+</p>
+
+</div>
+</div>
+
+<script>
+const c=document.getElementById("p"),x=c.getContext("2d");
+c.width=innerWidth;c.height=innerHeight;
+let pts=[...Array(60)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5),vy:(Math.random()-.5)}));
+function anim(){
+x.clearRect(0,0,c.width,c.height);
+pts.forEach(p=>{
+p.x+=p.vx;p.y+=p.vy;
+if(p.x<0||p.x>c.width)p.vx*=-1;
+if(p.y<0||p.y>c.height)p.vy*=-1;
+x.fillStyle="#00f2ff";x.fillRect(p.x,p.y,2,2);
+});
+requestAnimationFrame(anim);
+}
+anim();
+</script>
+
+</body>
+</html>
